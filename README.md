@@ -13,3 +13,15 @@ link file
 $ ln -s ~/.vim/vimrc ~/.vimrc
 $ ln -s ~/.vim/gvimrc ~/.gvimrc
 ```
+
+## c++ 插件
+
+```shell
+Plug 'skywind3000/asyncrun.vim'
+Plug 'dense-analysis/ale'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'mhinz/vim-signify'
+Plug 'octol/vim-cpp-enhanced-highlight'
+```
+
+其中 YCM 需用使用 pythone3 安装
