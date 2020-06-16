@@ -16,6 +16,9 @@ Plug 'dense-analysis/ale'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'mhinz/vim-signify'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 "设置主题
@@ -46,6 +49,16 @@ filetype plugin indent on
 "editor
 let g:vim_markdown_math = 1 "高亮 latex 数学公式
 let g:auto_save = 1  " enable AutoSave on Vim startup
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "IDE
 "---------------------
@@ -112,10 +125,22 @@ set completeopt=menu,menuone
 
 noremap <c-z> <NOP>
 
-let g:ycm_semantic_triggers =  {
+let g:ycm_semantic_triggers = {
            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
            \ 'cs,lua,javascript': ['re!\w{2}'],
            \ }
+
+let g:ycm_filetype_whitelist = { 
+			\ "c":1,
+			\ "cpp":1, 
+			\ "objc":1,
+			\ "sh":1,
+			\ "zsh":1,
+			\ "zimbu":1,
+			\ "markdown":1,
+			\ }
+
+let g:ycm_filetype_blacklist = {'notes': 1, 'unite': 1, 'tagbar': 1, 'pandoc': 1, 'qf': 1, 'vimwiki': 1, 'text': 1, 'infolog': 1, 'mail': 1}
 
 "c++
 " asyncrun.vim
@@ -131,6 +156,8 @@ nnoremap <silent> <F9> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILED
 nnoremap <silent> <F5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
 
 
+
 "vimrc配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
+autocmd BufNewFile,BufRead *.{md,mkd,mkdn,mark*} set filetype=markdown
