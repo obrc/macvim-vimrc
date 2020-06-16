@@ -19,6 +19,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'altercation/vim-colors-solarized'
+Plug 'powerline/powerline'
 call plug#end()
 
 "设置主题
@@ -49,6 +51,18 @@ filetype plugin indent on
 "editor
 let g:vim_markdown_math = 1 "高亮 latex 数学公式
 let g:auto_save = 1  " enable AutoSave on Vim startup
+
+" powerline
+" 将字体设置为Meslo LG S DZ Regular for Powerline 13号大小
+set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h13
+
+let g:Powerline_symbols = 'fancy'       " Powerline_symbols为状态栏中的箭头，unicode没有箭头
+"let g:Powerline_symbols= 'unicode'
+"
+set  rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
+set laststatus=2                " 必须设置为2,否则状态栏不显示
+set t_Co=256                    " 开启256颜色之后，colorschema在vim里好看了许多
+let g:Powerline_colorscheme='solarized256'  " 状态栏使用了solarized256配色方案
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']

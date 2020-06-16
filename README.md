@@ -13,6 +13,10 @@ link file
 $ ln -s ~/.vim/vimrc ~/.vimrc
 $ ln -s ~/.vim/gvimrc ~/.gvimrc
 ```
+## vim 插件
+
+powerline 需要事先安装 [powerline-status](https://pypi.org/project/powerline-status/)
+> 因为没有配置 [bindings for vim](https://stackoverflow.com/questions/47402481/powerline-not-work-in-vim) 导致 powerline 没有显示
 
 ## c++ 插件
 
